@@ -89,7 +89,7 @@ const Dashboard = () => {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="flex flex-col space-y-3 border border-gray-200 rounded-3xl p-4 shadow-md bg-white cursor-move"
+                            className="flex flex-col space-y-3 border border-gray-200 dark:text-black rounded-3xl p-4 shadow-md bg-white cursor-move"
                             style={style}
                           >
                             <span
