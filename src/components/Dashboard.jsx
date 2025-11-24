@@ -37,19 +37,17 @@ const Dashboard = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="p-10 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start">
+      {/* ⭐ Center columns on mobile */}
+      <div className="p-10 grid gap-5 grid-cols-1 md:grid-cols-3 items-start justify-center">
         {data.map((section) => (
           <Droppable key={section.id} droppableId={section.id}>
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                className="flex flex-col space-y-4 rounded-3xl bg-brand1/5 p-3"
-                style={{
-                  width: "340px", // 🔒 lock column width
-                  flexShrink: 0, // 🔒 prevent shrinking/stretching
-                  height: "fit-content", // keep height natural
-                }}
+                /* ⭐ Fixed width + centered on mobile */
+                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 
+                           w-[340px] mx-auto md:mx-0"
               >
                 {/* Header */}
                 <div
@@ -69,7 +67,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Cards */}
-                <div className="flex flex-col gap-4">
+                <div className="flex items-center flex-col gap-4">
                   {section.cards.map((card, index) => (
                     <Draggable
                       key={card.id}
@@ -79,7 +77,7 @@ const Dashboard = () => {
                       {(provided, snapshot) => {
                         const style = {
                           ...provided.draggableProps.style,
-                          width: snapshot.isDragging ? "300px" : "100%", // 🔒 fix width while dragging
+                          width: snapshot.isDragging ? "300px" : "100%",
                           maxWidth: "300px",
                           minWidth: "300px",
                         };

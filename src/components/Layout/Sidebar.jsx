@@ -149,7 +149,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="flex items-center space-x-3 p-3 rounded-xl bg-gray-200 dark:bg-gray-800"
+              className="hidden items-center space-x-3 p-3 rounded-xl bg-gray-200 dark:bg-gray-800"
             >
               <Icons.Sun className="w-6 h-6 block dark:hidden" />
               <Icons.Moon className="w-6 h-6 hidden dark:block" />
