@@ -4,12 +4,36 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { dashboardData as initialData } from "../data/dashboardData";
 
 const Dashboard = () => {
-  const [data, setData] = useState(initialData);
+  // Compute count dynamically from the cards length
+  const [data, setData] = useState(
+    initialData.map((col) => ({
+      ...col,
+      count: col.cards.length,
+    }))
+  );
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) return;
 
+    if (source.droppableId === destination.droppableId) {
+      const colIndex = data.findIndex((col) => col.id === source.droppableId);
+      const col = data[colIndex];
+      const updatedCards = Array.from(col.cards);
+      const [movedCard] = updatedCards.splice(source.index, 1);
+      updatedCards.splice(destination.index, 0, movedCard);
+
+      const newData = [...data];
+      newData[colIndex] = {
+        ...col,
+        cards: updatedCards,
+        count: updatedCards.length,
+      };
+      setData(newData);
+      return;
+    }
+
+    // Moving across columns
     const sourceColIndex = data.findIndex(
       (col) => col.id === source.droppableId
     );
@@ -20,24 +44,29 @@ const Dashboard = () => {
     const sourceCol = data[sourceColIndex];
     const destCol = data[destColIndex];
 
-    const draggedTask = sourceCol.cards[source.index];
+    const sourceCards = Array.from(sourceCol.cards);
+    const destCards = Array.from(destCol.cards);
 
-    const newSourceCards = [...sourceCol.cards];
-    newSourceCards.splice(source.index, 1);
-
-    const newDestCards = [...destCol.cards];
-    newDestCards.splice(destination.index, 0, draggedTask);
+    const [movedCard] = sourceCards.splice(source.index, 1);
+    destCards.splice(destination.index, 0, movedCard);
 
     const updated = [...data];
-    updated[sourceColIndex] = { ...sourceCol, cards: newSourceCards };
-    updated[destColIndex] = { ...destCol, cards: newDestCards };
+    updated[sourceColIndex] = {
+      ...sourceCol,
+      cards: sourceCards,
+      count: sourceCards.length,
+    };
+    updated[destColIndex] = {
+      ...destCol,
+      cards: destCards,
+      count: destCards.length,
+    };
 
     setData(updated);
   };
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      {/* ⭐ Center columns on mobile */}
       <div className="p-10 grid gap-5 grid-cols-1 md:grid-cols-3 items-start justify-center">
         {data.map((section) => (
           <Droppable key={section.id} droppableId={section.id}>
@@ -45,11 +74,9 @@ const Dashboard = () => {
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                /* ⭐ Fixed width + centered on mobile */
-                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 
-                           w-[340px] mx-auto md:mx-0"
+                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-[340px] mx-auto md:mx-0"
               >
-                {/* Header */}
+                {/* Column Header */}
                 <div
                   className="flex items-center justify-between p-3 rounded-full font-bold"
                   style={{ backgroundColor: section.bgColor }}
@@ -70,8 +97,8 @@ const Dashboard = () => {
                 <div className="flex items-center flex-col gap-4">
                   {section.cards.map((card, index) => (
                     <Draggable
-                      key={card.id}
-                      draggableId={String(card.id)}
+                      key={`${section.id}-${card.id}`}
+                      draggableId={`${section.id}-${card.id}`}
                       index={index}
                     >
                       {(provided, snapshot) => {
@@ -127,7 +154,6 @@ const Dashboard = () => {
                       }}
                     </Draggable>
                   ))}
-
                   {provided.placeholder}
                 </div>
               </div>

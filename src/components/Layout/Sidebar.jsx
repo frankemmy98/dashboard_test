@@ -110,7 +110,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
 
         {/* Profile (Desktop Only) */}
         {!collapsed && (
-          <div className="hidden md:flex pt-3 border-t border-gray-300 dark:border-gray-700">
+          <div className="hidden md:flex items-center justify-between pt-3 border-t border-gray-300 dark:border-gray-700">
             <div className="flex items-center space-x-3 pt-3">
               <img
                 src="/images/ProfileImg.svg"
@@ -126,9 +126,8 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
                   Basic Member
                 </p>
               </div>
-
-              <LogOut className="text-gray-600 dark:text-gray-400 cursor-pointer" />
             </div>
+            <LogOut className="text-gray-600 dark:text-gray-400 cursor-pointer" />
           </div>
         )}
       </div>

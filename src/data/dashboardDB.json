@@ -1,0 +1,274 @@
+{
+  "columns": [
+    {
+      "id": "inProgress",
+      "label": "In Progress",
+      "active": true,
+      "count": 6,
+      "bgColor": "#4F46E5",
+      "cards": [
+        {
+          "id": "importantReviewed",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "User flow confirmation for finance app",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 8,
+          "likes": 112
+        },
+        {
+          "id": "importantProg",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 11,
+          "likes": 187
+        },
+        {
+          "id": "ok",
+          "label": "OK",
+          "labelColor": "#F59E0B",
+          "title": "Blog Copywriting (Low priority 😅)",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg5.svg"
+            },
+            {
+              "img2": "/images/ProfileImg6.svg"
+            }
+          ],
+          "comments": 987,
+          "likes": "21,8K"
+        },
+        {
+          "id": "importantReviewed",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "User flow confirmation for finance app",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 8,
+          "likes": 112
+        },
+        {
+          "id": "importantProg",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 11,
+          "likes": 187
+        },
+        {
+          "id": "importantProg",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 11,
+          "likes": 187
+        }
+      ]
+    },
+    {
+      "id": "reviewed",
+      "label": "Reviewed",
+      "active": true,
+      "count": 3,
+      "bgColor": "#F59E0B",
+      "cards": [
+        {
+          "id": "ok",
+          "label": "OK",
+          "labelColor": "#F59E0B",
+          "title": "Blog Copywriting (Low priority 😅)",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg5.svg"
+            },
+            {
+              "img2": "/images/ProfileImg6.svg"
+            }
+          ],
+          "comments": 987,
+          "likes": "21,8K"
+        },
+        {
+          "id": "iGuess",
+          "label": "I guess",
+          "labelColor": "#475569",
+          "title": "Landing page for Azunyan senpai",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            }
+          ],
+          "comments": 9,
+          "likes": 487
+        },
+        {
+          "id": "importantReviewed",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "User flow confirmation for finance app",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 8,
+          "likes": 112
+        }
+      ]
+    },
+    {
+      "id": "completed",
+      "label": "Completed",
+      "active": true,
+      "count": 6,
+      "bgColor": "#22C55E",
+      "cards": [
+        {
+          "id": "importantProg",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 11,
+          "likes": 187
+        },
+        {
+          "id": "importantProg",
+          "label": "Important",
+          "labelColor": "#4F46E5",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 11,
+          "likes": 187
+        },
+        {
+          "id": "ok",
+          "label": "OK",
+          "labelColor": "#F59E0B",
+          "title": "Blog Copywriting (Low priority 😅)",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg5.svg"
+            },
+            {
+              "img2": "/images/ProfileImg6.svg"
+            }
+          ],
+          "comments": 987,
+          "likes": "21,8K"
+        },
+        {
+          "id": "lowPriority",
+          "label": "Low Priority",
+          "labelColor": "#22C55E",
+          "title": "UI/UX Design in the age of AI",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            },
+            {
+              "img3": "/images/ProfileImg3.svg"
+            }
+          ],
+          "comments": 17,
+          "likes": 0
+        },
+        {
+          "id": "maybeImportant",
+          "label": "Maybe important",
+          "labelColor": "#475569",
+          "title": "Landing page for Azunyan senpai",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            },
+            {
+              "img2": "/images/ProfileImg2.svg"
+            }
+          ],
+          "comments": 5,
+          "likes": 11
+        },
+        {
+          "id": "iGuess",
+          "label": "I guess",
+          "labelColor": "#475569",
+          "title": "Landing page for Azunyan senpai",
+          "p": "Lorem ipsum dolor sit amet, libre unst consectetur adispicing elit.",
+          "profileImg": [
+            {
+              "img1": "/images/ProfileImg.svg"
+            }
+          ],
+          "comments": 9,
+          "likes": 487
+        }
+      ]
+    }
+  ]
+}
