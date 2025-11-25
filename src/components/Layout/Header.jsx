@@ -34,10 +34,10 @@ const Header = ({ collapsedSidebar, onToggleSidebar }) => {
       <div className="flex flex-col lg:flex-row items-start justify-between gap-5">
         {/* Left */}
         <div className="flex items-center space-x-4">
-          {/* Menu Icon */}
-          {/* <button className="hidden md:block rounded-lg text-gray-600 dark:text-gray-300 transition-colors">
+          {/* Sidebar Toggle */}
+          <button className="hidden md:block rounded-lg text-gray-600 dark:text-gray-300 transition-colors">
             <Menu className="w-5 h-5" onClick={onToggleSidebar} />
-          </button> */}
+          </button>
 
           <div>
             <h1 className="text-2xl md:text-3xl font-black text-gray-800 dark:text-white">
@@ -64,7 +64,7 @@ const Header = ({ collapsedSidebar, onToggleSidebar }) => {
           </div>
 
           {/* Theme Toggle (Icon switches correctly) */}
-          {/* <button
+          <button
             className="hidden md:block p-2.5 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
             onClick={toggleTheme}
           >
@@ -73,7 +73,7 @@ const Header = ({ collapsedSidebar, onToggleSidebar }) => {
             ) : (
               <Sun className="w-5 h-5" />
             )}
-          </button> */}
+          </button>
         </div>
       </div>
 

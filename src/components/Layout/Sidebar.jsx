@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Icons from "lucide-react";
 import { LogOut, Search } from "lucide-react";
 import { menuItems } from "../../data/menuItems";
@@ -11,12 +11,31 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
     document.documentElement.classList.toggle("dark");
   };
 
+  // Sync state with screen size
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+
+      // Force expand sidebar if screen is small
+      if (width > 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Call once to set initial state correctly
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [mobileMenuOpen]);
+
   return (
     <>
       {/* MAIN SIDEBAR (DESKTOP) */}
       <div
         className={`${collapsed ? "w-30" : "md:w-80 lg:w-90"}  
-        md:h-1/2 px-6 md:px-8 py-4 md:py-10 transition-all duration-300 ease-in-out
+        md:h-1/2 py-4 px-6 md:px-8 md:py-10 transition-all duration-300 ease-in-out
         bg-white text-black dark:bg-black dark:text-white border-gray-400
         border-r dark:border-gray-700 backdrop-blur-xl flex flex-col relative z-10`}
       >
@@ -148,7 +167,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="hidden items-center space-x-3 p-3 rounded-xl bg-gray-200 dark:bg-gray-800"
+              className="flex items-center space-x-3 p-3 rounded-xl bg-gray-200 dark:bg-gray-800"
             >
               <Icons.Sun className="w-6 h-6 block dark:hidden" />
               <Icons.Moon className="w-6 h-6 hidden dark:block" />

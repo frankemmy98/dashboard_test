@@ -67,14 +67,14 @@ const Dashboard = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="p-10 grid gap-5 grid-cols-1 md:grid-cols-3 items-start justify-center">
+      <div className="py-10 sm:p-10 grid gap-5 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 items-start justify-center">
         {data.map((section) => (
           <Droppable key={section.id} droppableId={section.id}>
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-[340px] mx-auto md:mx-0"
+                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-[340px] mx-auto"
               >
                 {/* Column Header */}
                 <div
