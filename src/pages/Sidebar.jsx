@@ -35,8 +35,9 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
     <>
       {/* MAIN SIDEBAR (DESKTOP) */}
       <div
-        className={`${collapsed ? "w-30" : "md:w-80 lg:w-90 2xl:w-100"}  
-        md:h-1/2 border-b py-4 px-6 md:px-8 md:py-10 transition-all duration-300 ease-in-out
+        className={`${
+          collapsed ? "w-30" : "md:w-80 lg:w-90 2xl:w-100"
+        } border-b py-4 px-6 md:px-8 md:py-10 transition-all duration-300 ease-in-out
         bg-white text-black dark:bg-black dark:text-white border-gray-400
         border-r dark:border-gray-700 backdrop-blur-xl flex flex-col relative z-10`}
       >
@@ -81,7 +82,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
         )}
 
         {/* Navigation (Desktop Only) */}
-        <nav className="hidden md:block flex-1 py-6 space-y-2 overflow-y-auto">
+        <nav className="hidden md:block flex-1 py-6 space-y-2 mt-5 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = Icons[item.icon];
 
@@ -117,7 +118,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
 
         {/* Subscription Card (Desktop Only) */}
         {!collapsed && (
-          <div className="hidden md:flex flex-col rounded-3xl mt-25 mb-6 space-y-5 p-6 bg-brand4 dark:bg-gray-800">
+          <div className="hidden md:flex flex-col rounded-3xl mb-6 space-y-5 p-6 bg-brand4 dark:bg-gray-800">
             <div className="flex items-center justify-between">
               <div className="w-9 h-9 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
                 <Icons.TriangleAlert className="text-gray-700 dark:text-gray-300" />
