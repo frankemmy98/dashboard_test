@@ -1,53 +1,58 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "./components/Layout/Sidebar";
-import Header from "./components/Layout/Header";
-import Dashboard from "./components/Dashboard";
-import ThemeContextProvider from "./context/ThemeContextProvider";
+import Dashboard from "./pages/Dashboard";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Tasks from "./pages/Tasks";
+import Users from "./pages/Users";
+import Api from "./pages/Api";
+import Settings from "./pages/Settings";
+import Help from "./pages/Help";
+import Subscription from "./pages/Subscription";
+import RootLayout from "./Layout/RootLayout";
 
 const App = () => {
-  const [collapsedSidebar, setCollapsedSidebar] = useState(false);
-  const [currentPage, setCurrentPage] = useState("dashboard");
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Dashboard section="total" />} />
 
-  // Sync collapse state with screen size
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
+        {/* Dashboard Navs */}
+        <Route
+          path="dashboard/by-status"
+          element={<Dashboard section="status" />}
+        />
+        <Route
+          path="dashboard/by-total"
+          element={<Dashboard section="total" />}
+        />
+        <Route
+          path="dashboard/tasks-due"
+          element={<Dashboard section="due" />}
+        />
+        <Route
+          path="dashboard/extra-tasks"
+          element={<Dashboard section="extra" />}
+        />
+        <Route
+          path="dashboard/tasks-completed"
+          element={<Dashboard section="completed" />}
+        />
 
-      // Force expand sidebar if screen is small
-      if (width < 768 && collapsedSidebar) {
-        setCollapsedSidebar(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Call once to set initial state correctly
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, [collapsedSidebar]);
-
-  return (
-    <ThemeContextProvider>
-      <div className="min-h-screen font-brandFont bg-white dark:bg-black dark:text-white overflow-x-hidden">
-        <div className="flex flex-col md:flex-row">
-          <Sidebar
-            collapsed={collapsedSidebar}
-            onToggle={() => setCollapsedSidebar(!collapsedSidebar)}
-            currentPage={currentPage}
-            onPageChange={setCurrentPage}
-          />
-          <div className="md:flex-1 md:flex md:flex-col md:overflow-hidden">
-            <Header
-              collapsedSidebar={collapsedSidebar}
-              onToggleSidebar={() => setCollapsedSidebar(!collapsedSidebar)}
-            />
-            <Dashboard />
-          </div>
-        </div>
-      </div>
-    </ThemeContextProvider>
+        {/* Sidebar Navs */}
+        <Route path="tasks" element={<Tasks />} />
+        <Route path="users" element={<Users />} />
+        <Route path="apis" element={<Api />} />
+        <Route path="subscription" element={<Subscription />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="help" element={<Help />} />
+      </Route>
+    )
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default App;

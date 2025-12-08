@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import * as Icons from "lucide-react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { dashboardData as initialData } from "../data/dashboardData";
+import { dashboardData as initialData } from "../../data/dashboardData";
 
-const Dashboard = () => {
-  // Compute count dynamically from the cards length
+const ByTotalTasks = () => {
   const [data, setData] = useState(
-    initialData.map((col) => ({
-      ...col,
-      count: col.cards.length,
-    }))
+    initialData.map((col) => ({ ...col, count: col.cards.length }))
+  );
+
+  // Live total count
+  const totalColumnCount = useMemo(
+    () => data.reduce((sum, col) => sum + col.cards.length, 0),
+    [data]
   );
 
   const handleDragEnd = (result) => {
@@ -33,7 +35,6 @@ const Dashboard = () => {
       return;
     }
 
-    // Moving across columns
     const sourceColIndex = data.findIndex(
       (col) => col.id === source.droppableId
     );
@@ -67,45 +68,43 @@ const Dashboard = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="py-10 sm:p-10 grid gap-5 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 items-start justify-center">
-        {data.map((section) => (
-          <Droppable key={section.id} droppableId={section.id}>
+      <div className="py-10 sm:p-10 grid gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 items-start justify-center">
+        {data.map((col) => (
+          <Droppable key={col.id} droppableId={col.id}>
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-[340px] mx-auto"
+                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-full max-w-[400px] mx-auto"
               >
-                {/* Column Header */}
                 <div
                   className="flex items-center justify-between p-3 rounded-full font-bold"
-                  style={{ backgroundColor: section.bgColor }}
+                  style={{ backgroundColor: col.bgColor }}
                 >
                   <div className="flex items-center space-x-2">
                     <span
                       className="py-1.5 px-3 bg-white text-sm rounded-full"
-                      style={{ color: section.bgColor }}
+                      style={{ color: col.bgColor }}
                     >
-                      {section.count}
+                      {col.count}
                     </span>
-                    <span className="text-white">{section.label}</span>
+                    <span className="text-white">{col.label}</span>
                   </div>
                   <Icons.Plus className="w-6 h-6 text-white" />
                 </div>
 
-                {/* Cards */}
-                <div className="flex items-center flex-col gap-4">
-                  {section.cards.map((card, index) => (
+                <div className="flex flex-col gap-4">
+                  {col.cards.map((card, index) => (
                     <Draggable
-                      key={`${section.id}-${card.id}`}
-                      draggableId={`${section.id}-${card.id}`}
+                      key={`${col.id}-${card.id}`}
+                      draggableId={`${col.id}-${card.id}`}
                       index={index}
                     >
                       {(provided, snapshot) => {
                         const style = {
                           ...provided.draggableProps.style,
-                          width: snapshot.isDragging ? "300px" : "100%",
-                          maxWidth: "300px",
+                          width: snapshot.isDragging ? "400px" : "100%",
+                          maxWidth: "400px",
                           minWidth: "300px",
                         };
 
@@ -165,4 +164,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ByTotalTasks;
