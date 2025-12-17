@@ -31,8 +31,8 @@ const RootLayout = () => {
 
   return (
     <ThemeContextProvider>
-      <div className="min-h-screen font-brandFont bg-white dark:bg-black dark:text-white overflow-x-hidden">
-        <div className="flex flex-col md:flex-row">
+      <div className="h-screen overflow-hidden font-brandFont bg-white dark:bg-black dark:text-white overflow-x-hidden">
+        <div className="flex flex-col md:flex-row h-full min-h-0">
           <Sidebar
             currentPage={currentPage}
             onPageChange={setCurrentPage}

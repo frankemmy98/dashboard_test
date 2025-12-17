@@ -37,7 +37,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
       <div
         className={`${
           collapsed ? "w-30" : "md:w-80 lg:w-90 2xl:w-100"
-        } border-b py-4 px-6 md:px-8 md:py-10 transition-all duration-300 ease-in-out
+        } shrink-0 min-h-0 overflow-y-auto scrollbar-none border-b py-4 px-6 md:px-8 md:py-10 transition-all duration-300 ease-in-out
         bg-white text-black dark:bg-black dark:text-white border-gray-400
         border-r dark:border-gray-700 backdrop-blur-xl flex flex-col relative z-10`}
       >
@@ -82,7 +82,7 @@ const Sidebar = ({ collapsed, currentPage, onPageChange }) => {
         )}
 
         {/* Navigation (Desktop Only) */}
-        <nav className="hidden md:block flex-1 py-6 space-y-2 mt-5 overflow-y-auto">
+        <nav className="hidden md:block flex-1 py-6 space-y-2 mt-5">
           {menuItems.map((item) => {
             const Icon = Icons[item.icon];
 

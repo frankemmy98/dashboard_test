@@ -45,9 +45,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="md:flex-1 md:flex md:flex-col md:overflow-hidden">
+    <div className="md:flex-1 md:flex md:flex-col min-h-0">
       {/* Header */}
-      <div className="flex flex-col bg-brand4 dark:bg-gray-900 backdrop-blur-xl space-y-9 px-8 pt-6 border-b border-gray-400 dark:border-gray-700">
+      <div className="shrink-0 bg-brand4 dark:bg-gray-900 backdrop-blur-xl space-y-9 px-8 pt-6 border-b border-gray-400 dark:border-gray-700">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-5">
           <h1 className="text-2xl md:text-3xl font-black text-gray-800 dark:text-white">
             Kanban Dashboard 🃏
@@ -106,7 +106,9 @@ const Dashboard = () => {
       </div>
 
       {/* Content */}
-      {renderContent()}
+      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-none px-8 py-6">
+        {renderContent()}
+      </div>
     </div>
   );
 };
