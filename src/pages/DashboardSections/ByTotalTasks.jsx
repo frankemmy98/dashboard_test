@@ -68,14 +68,14 @@ const ByTotalTasks = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="py-10 sm:p-10 grid gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 items-start justify-center">
+      <div className="py-10 px-6 grid gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 items-start justify-center">
         {data.map((col) => (
           <Droppable key={col.id} droppableId={col.id}>
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-full max-w-[400px] mx-auto"
+                className="flex flex-col space-y-4 dark:text-black rounded-3xl bg-brand1/5 p-3 w-full mx-auto"
               >
                 <div
                   className="flex items-center justify-between p-3 rounded-full font-bold"
@@ -104,7 +104,7 @@ const ByTotalTasks = () => {
                         const style = {
                           ...provided.draggableProps.style,
                           width: snapshot.isDragging ? "400px" : "100%",
-                          maxWidth: "400px",
+                          // maxWidth: "400px",
                           minWidth: "300px",
                         };
 
