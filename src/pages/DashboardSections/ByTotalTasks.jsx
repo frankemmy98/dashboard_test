@@ -103,9 +103,6 @@ const ByTotalTasks = () => {
                       {(provided, snapshot) => {
                         const style = {
                           ...provided.draggableProps.style,
-                          // width: snapshot.isDragging ? "" : "100%",
-                          // maxWidth: "400px",
-                          // minWidth: "300px",
                         };
 
                         return (
